@@ -7,7 +7,6 @@ import subprocess as sp
 from prettytable import PrettyTable
 
 __author__ = "Darmanex"
-__copyright__ = "Copyleft @ 2019"
 __version__ = "0.1"
 
 
@@ -63,47 +62,48 @@ def title():
     print(warna.START + "Script untuk mengecek jatah ransum ronda malam" + warna.END)
     garis_batas()
 
+dataJatah = [("Pakde Karsono", ["27, Juni 2019"]),
+            ("Pak Kukuh", ["20, Juni 2019"]),
+            ("Sarwadi", ["4, Juli 2019"]),
+            ("Andiyanto", ["11, Juni 2019"]),
+            ("Dedi Eko", ["18, Juli 2019"])]
 
-# def menu():
-#     print("=[[", "Silahkan piliha nama-nama diatas untuk mengecek jatah ransunm ronda malam", "]]=")
-
-
-loop = True
-
-while loop:
+isValidInput = True
+while isValidInput:
     title()
     print(f"Hari ini: {tbt} | Pukul: {hr}")
-    #garis_batas()
     print(x.get_string(title="Tabel Nama-nama warga Griya Kembang Putih"))
-    #menu()
-    pilih = input(
+
+    for data in dataJatah:
+        if data == [1]:
+            print("Jatah hari ini adalah: ", data[1])
+
+        pilih = input(
         "Pilih nomor dari daftar nama-nama diatas untuk mengecek jatah ransum [1-18]\natau ketik q untuk keluar: ")
 
-    if pilih == 1:
-        print("Menu 1 has been selected")
-        # You can add your code or functions here
-    elif pilih == 2:
-        print("Menu 2 has been selected")
-        # You can add your code or functions here
-    elif pilih == 3:
-        print("Menu 3 has been selected")
-        # You can add your code or functions here
-    elif pilih == 4:
-        print("Menu 4 has been selected")
-        # You can add your code or functions here
-    elif pilih == 5:
-        print("Menu 5 has been selected")
-        # You can add your code or functions here
-    elif pilih == "q":
-        print("[✔] Good bye!")
-        sys.exit(0)
+        if pilih == 1:
+            print("Menu 1 has been selected")
+            # You can add your code or functions here
+        elif pilih == 2:
+            print("Menu 2 has been selected")
+            # You can add your code or functions here
+        elif pilih == 3:
+            print("Menu 3 has been selected")
+            # You can add your code or functions here
+        elif pilih == 4:
+            print("Menu 4 has been selected")
+            # You can add your code or functions here
+        elif pilih == 5:
+            print("Menu 5 has been selected")
+            # You can add your code or functions here
+        elif pilih == "q":
+            print("[✔] Good bye!")
+            sys.exit(0)
+        else:
+            input("Salah pilih opsi. Tekan enter untuk memilih kembali.")
 
-        loop = False  # This will make the while loop to end as not value of loop is set to False
-
-    else:
-        input("Salah pilih opsi. Tekan enter untuk memilih kembali.")
+        isValidInput = False
         clear()
-
 
 # daftar nama-nama yang ronda
 daftar_nama = {
@@ -126,13 +126,6 @@ daftar_nama = {
     'Novran': 'Bugisan 22',
     'Faad': 'Suryowijayan 25'
 }
-
-students = [("Alejandro", []),
-            ("Justin", ["Math", "CompSci", "Stats"]),
-            ("Ed", ["CompSci", "Accounting", "Economics"]),
-            ("Margot", ["InfSys", "Accounting", "Economics", "CommLaw"]),
-            ("Peter", ["Sociology", "Economics", "Law", "Stats", "Music"])]
-
 #  jadwal grup ronda tiap kamis malam
 jadwal_ronda = "kamis"
 
@@ -164,13 +157,7 @@ class Progs:
                 print("Ops! Retry")
             else:
                 print("Hello ", input_nama)
-                break  # this will break the loop
-            # try:
-            #     text = str(input_nama)
-            #     print("Terima kasih telah memasukkan namanya gan!", text)
-            # except ValueError:
-            #     print("Masukkan nama-nama yang telah terdaftar bro!")
+                break
         self.masukkan_nama = input_nama
-
 
 print(daftar_nama)
