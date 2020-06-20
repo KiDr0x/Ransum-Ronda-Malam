@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
 
+## unfinished, still under in development
+
 import datetime
 from datetime import date
 from os import sys
